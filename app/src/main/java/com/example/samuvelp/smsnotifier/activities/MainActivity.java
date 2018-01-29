@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         String phoneNumber = sharedPreferences.getString("phoneNumber", null);
         if (phoneNumber != null) {
             startActivity(new Intent(this, HomeActivity.class));
+            finish();
         }
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

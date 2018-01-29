@@ -20,10 +20,15 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
-//        Boolean buttonState = switchButton.isChecked();
-//        if (buttonState) {
-//            switchText.setText("Turn off SMS notification");
-//        }
+        Boolean switchState = sharedPreferences.getBoolean("isChecked",false);
+        if(switchState){
+            switchButton.setChecked(true);
+            switchText.setText("Turn off SMS notification");
+        }else {
+            switchButton.setChecked(false);
+            switchText.setText("Turn on to receive SMS notification in your browser!");
+        }
+
         switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
